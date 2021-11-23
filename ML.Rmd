@@ -1,0 +1,42 @@
+---
+title: "ML-Datasets"
+author: "NGUYEN Minh Hai"
+date: "11/17/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+```{r}
+library(ggplot2)
+```
+
+
+```{r}
+snore = read.table("snore.txt")
+```
+```{r}
+snore = data.frame(snore)
+summary(snore)
+print(snore[0])
+```
+```{r}
+myplot = ggplot(snore, aes(x = height, y = weight))
+myplot
+```
+
+
+```{r}
+myplot = myplot + geom_point() + geom_smooth(method = 'lm')
+```
+
+```{r}
+plot(myplot)
+```
+```{r}
+myplot + xlim(c(160,200)) + ylim(c(40,120))
+```
+
